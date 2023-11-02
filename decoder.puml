@@ -1,0 +1,44 @@
+@startuml
+
+component Zentrale
+component Decoder
+
+
+
+Zentrale -> Decoder : MM / DCC
+Zentrale <- Decoder : mfx / RailCom / RailComPlus
+
+
+component Lokomotive {
+
+component Motor
+component Licht
+component Musik
+component Kupplung
+
+}
+
+Decoder <--> Motor
+Decoder  --> Licht
+Decoder  --> Musik
+Decoder  --> Kupplung
+
+
+
+component Anlage {
+
+component Weiche
+component Signal
+component Rückmelder
+component Drehscheibe
+component Bahnübergang
+
+}
+
+Weiche <-- Decoder
+Signal <-- Decoder
+Rückmelder --> Decoder
+Drehscheibe <-- Decoder
+Bahnübergang <-- Decoder
+
+@enduml
